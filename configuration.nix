@@ -26,7 +26,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Europe/London";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -74,7 +74,6 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    firefox
     brave
     zsh
     openssh
@@ -86,9 +85,11 @@
     ranger
     kubernetes-helm
     terminator
-    meslo-lg
-    sxhkd
+    terraform
+    vscode
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   fonts.fonts = with pkgs; [
     nerdfonts
@@ -115,7 +116,6 @@
 
     displayManager = {
         defaultSession = "xfce";
-        lightdm.enable = true;
     };
    
    #windowManager.i3 = {
