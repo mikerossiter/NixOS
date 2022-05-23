@@ -87,6 +87,10 @@
     terminator
     terraform
     vscode
+    gparted
+    unzip
+    xarchiver
+    cmatrix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -130,12 +134,18 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  
+  security = {
+  sudo.configFile = ''
+    Defaults pwfeedback
+    '';
+  };
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
+  
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
